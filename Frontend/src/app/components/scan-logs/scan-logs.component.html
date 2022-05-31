@@ -1,0 +1,46 @@
+
+<form  [formGroup]="scanLogs">
+    <div class="m-5">
+        <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" formControlName="startDate" class="me-3">
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" formControlName="endDate" class="me-3">
+    <input class="btn text-white py-0 mb-1" type="submit" (click)="getAllScanLogs()">
+    </div>
+ </form>
+
+
+<div class="scrollme">
+    <div class="m-1">
+    <table class="table table-bordered border-dark text-center">
+        <thead>
+            <tr class="text-white">
+                <th>No.</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Temperature</th>
+                <th>Symptoms</th>
+                <th>DateTime</th>
+   
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userScanLogs | paginate:{ itemsPerPage:10, currentPage: p, totalItems: total }; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.temperature}}</td>
+                <td *ngIf="user.symptoms">Yes</td>
+                <td *ngIf="!user.symptoms">No</td>
+                <td class="text-nowrap">{{user.scanned_at | date:'medium'}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+         <pagination-controls *ngIf=" userScanLogs" (pageChange)="pageChangeEvent($event)"></pagination-controls>
+    </div>
+   
+ </div>
+</div>

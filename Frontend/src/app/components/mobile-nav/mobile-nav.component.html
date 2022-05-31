@@ -1,0 +1,10 @@
+<nav class="navbar fixed-bottom ">
+  <div class="container">
+    
+    <div *ngIf="user && !isSecurity" role="button" routerLink="/user-profile" class="d-flex justify-content-center align-items-center w-100 cont-width overflow-hidden rounded-circle position-relative">
+        <img *ngIf="user.image" src="{{ user.image }}" class="user-select-none mw-100" title="{{ user.username }}">
+        <h4 *ngIf="!user.image" class="align-items-center position-absolute userText" title="{{ user.username }}">{{ user.username[0] }}</h4>
+    </div>
+    <p><fa-icon role="button" title="log out" [icon]="logoutbtn" class=" some fa-rotate-900 mt-2 fs-3 " (click)="logOut()"></fa-icon></p>
+  </div>
+</nav>

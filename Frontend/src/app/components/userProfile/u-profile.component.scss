@@ -1,0 +1,60 @@
+
+.user-pro-cont {
+    box-shadow: 0 0 5px rgba(0,0,0,0.5); 
+}
+
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.btn {
+    font-size: 15px;
+    font-weight: bold;
+    background-color:#2d2d58;
+    border-radius: 50px;
+    color: white;
+}
+
+
+.fa{
+    position: absolute;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    min-width: 40px;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+}
+header nav
+{
+    display:block;
+}
+
+.my-input
+{
+    border-radius: 20px !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    height: 17px;
+}
+
+@media screen  and ( max-width:768px){
+   header vav{
+       display:none;
+   }
+}
+@media  screen and (orientatio:landscape) {
+    header nav {
+        position: fixed;
+        left: 0;
+        width: 20vw
+    }
+
+}
+.container{
+    background-color: #EFEFFF;
+}
+h4
+{
+ color:#2d2d58;
+}

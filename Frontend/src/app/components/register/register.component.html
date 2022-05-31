@@ -1,0 +1,131 @@
+
+<div class=" bd mt-5 rounded">
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-12">
+         
+          <div class="row">
+            
+            <div class="col">
+
+              <!--Drag and Drop file upload -->
+              <div class="container text-center my-5 bg-white col-md-4">
+
+                <div class="input-group-prepend">
+               
+                  <span class="fa fa-upload" aria-hidden="true"></span>
+                </div>
+                <div class="dropzone " DropZone (onFileDropped)="droppedFiles($event)">
+                  <div class="text-cter">
+                    Drag and Drop File<br><p>or</p>
+                  </div>
+                </div>
+                <div class="file-table" *ngIf="allFiles.length">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="cl">File Name</th> 
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let file of allFiles">
+                        <td class="cl d-flex justify-content-center">{{file.name}} <fa-icon [icon] = "deleteBtn" (click)="deletefile()" class="text-danger ms-2"></fa-icon> </td>
+                      </tr>
+                      <tr class="text-center" *ngIf="!allFiles.length">
+                        <td colspan="4" class="cl"><strong>No files are uploaded</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="uplBtnDiv pb-3">
+                  <button class="btn btn-primary">Choose file to upload</button>
+                  <input type="file" id="upl" (change)="selectedFiles($event)">
+                </div>
+              </div>
+            </div>
+          </div>
+           <!-- End of Drag and Drop file upload -->
+
+       <!-- Inputs field and Form validation for Name, Suname, User Role and Email  and the Register button-->
+  
+        <div class="d-flex justify-content-center">
+          <div class="register-form">
+            <form [formGroup]="form">
+              <div class="d-flex justify-content-end ">
+    
+              </div>
+
+
+              <div class="d-flex">
+   
+                <div class="row">
+                  <div class="col">
+                    <div class="clearfix">
+                      <div class="form-group mb-4">
+                        <label class="float-left form-check-label ps-3 ">Name<span class = " text-danger">*</span></label>
+                        
+                          <input [attr.disabled]="allFiles.length ? 'disabled': null" type="text" formControlName="username" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
+                          <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                            <div *ngIf="f['username'].errors['required']" class="ps-3"> Name is required</div>
+                          </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group mb-4">
+                      <label class="float-right ps-3 ">Surname <span  class = "text-danger">*</span></label>
+                      <input [attr.disabled]="allFiles.length ? 'disabled': null" type="text" formControlName="surname" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['surname'].errors }">
+                      <div *ngIf="submitted && f['surname'].errors" class="invalid-feedback">
+                        <div *ngIf="f['surname'].errors['required']" class="ps-3">Surname is required</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label class="float-left form-check-label ps-3 ">User Role <span class = "text-danger">*</span></label>
+                        <select [attr.disabled]="allFiles.length ? 'disabled': null" formControlName="role" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['role'].errors }">
+                         
+                          <option value="" [selected]="true">Select Role</option>
+                          <option value="employee">Employee</option>
+                          <option value="help_desk">Help Desk</option>
+                        </select>
+                        <div *ngIf="submitted && f['role'].errors" class="invalid-feedback">
+                          <div *ngIf="f['role'].errors['required']"class="ps-3">Please Select a Role </div>
+                        </div> 
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex justify-content-end">
+                      <div class="form-group mb-2">
+                        <label class="float-right ps-3">Email <span class = "text-danger">*</span></label>
+                        <input [attr.disabled]="allFiles.length ? 'disabled': null" type="text" formControlName="email" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                          <div *ngIf="f['email'].errors['required']"class="ps-3">Email is required</div>
+                          <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-block mt-4" (click)="submit()">Register Employee</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<app-spinner *ngIf="spinnerState"></app-spinner>

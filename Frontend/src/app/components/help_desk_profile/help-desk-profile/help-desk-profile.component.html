@@ -1,0 +1,67 @@
+
+<div class="container">
+
+    <div class="card card-container rounded-circle">
+        <img
+          id="profile-img"
+          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+          class="profile-img-card rounded-circle " />
+        </div>
+
+    <div class="col">
+        <div class="row">
+
+            <div class="form-group mb-4">
+                <label class="float-right ps-2 ">Name<span class="text-danger">*</span></label>
+                <input type="text" formControlName="username" class="form-control"
+                    style="border-radius: 20px ;box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"
+                    [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
+                <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                    <div *ngIf="f['username'].errors['required']">Name is required</div>
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <label class="float-right ps-2 ">Surname <span class="text-danger">*</span></label>
+                <input type="text" formControlName="surname" class="form-control"
+                    style="border-radius: 20px ;box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"
+                    [ngClass]="{ 'is-invalid': submitted && f['surname'].errors }">
+                <div *ngIf="submitted && f['surname'].errors" class="invalid-feedback">
+                    <div *ngIf="f['surname'].errors['required']">Surname is required</div>
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <label class="float-right ps-2 ">Company Name <span class="text-danger">*</span></label>
+                <input type="text" formControlName="company_name" class="form-control"
+                    style="border-radius: 20px ;box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"
+                    [ngClass]="{ 'is-invalid': submitted && f['company_name'].errors }">
+                <div *ngIf="submitted && f['company_name'].errors" class="invalid-feedback">
+                    <div *ngIf="f['company_name'].errors['required']">Company Name is required</div>
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <label class="float-right ps-2 ">Last Scan <span class="text-danger">*</span></label>
+                <input type="text" formControlName="last_scan" class="form-control"
+                    style="border-radius: 20px ;box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"
+                    [ngClass]="{ 'is-invalid': submitted && f['last_scan'].errors }">
+                <div *ngIf="submitted && f['last_scan'].errors" class="invalid-feedback">
+                    <div *ngIf="f['last_scan'].errors['required']">Last Scan is required</div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-block mt-4"(click)="submit()">Done</button>
+                </div>
+              </div>
+        </div>
+    </div>
+<nav class="navbar my-3 pd-3" style="border-style: dashed; border-radius: 10px"> 
+    <div class="container-fluid  ">
+        <button class="btn btn " type="submit"><fa-icon [icon]="menuBar" class="pe-3 "></fa-icon></button>
+        <button class="btn btn" type="submit"><fa-icon [icon]="logout"routerLink="/login" class="pe-3"></fa-icon></button>
+    </div>
+  </nav>
+</div>

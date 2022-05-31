@@ -1,0 +1,53 @@
+<div class="container text-center mt-4">
+    <div class="container mt-5">
+        <div class="row">
+        </div>
+        <div class="button__select">
+
+            <!-- search by name -->
+            <div class="search__container">
+                <input class="form-control-smfa-border- my-3  float-left" type="text" [(ngModel)]="searchText"
+                    (input)="Search()" placeholder="Search by name" />
+            </div>
+
+            <!-- filter by role -->
+            <div class="select__container 10px">
+                <select class="select__container" [(ngModel)]="filterText">
+                    <option value="">Filter by Role</option>
+                    <option value="employee">Employee</option>
+                    <option value="Help desk">Help_Desk</option>
+                </select>
+            </div>
+        </div>
+        <!-- Table for user list (emplooyes and help desk) -->
+        <table class="table table-bordered border-dark ">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Registered Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userLists | filterUsers: filterText | paginate:{ itemsPerPage:totalDisplayedUsers, currentPage:p, totalItems: total}; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.surname}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.role_id}}</td>
+                    <td>{{user.created_at| date:'medium'}}</td>
+
+                    <!-- Deactivation  and Activation button  -->
+
+                    <td *ngIf="user.status"><a  class="btn btn-sm btn-danger"(click)="deactivateUser(user.user_id)">Deactivate</a></td>
+                    <td *ngIf="!user.status"><a  class="btn btn-sm btn-success"(click)="reactivateEmployee(user.user_id)">Activate</a></td>
+
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls *ngIf="userLists" (pageChange)="pageChangeEvent($event)"></pagination-controls>
+    </div>

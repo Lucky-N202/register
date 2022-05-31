@@ -1,0 +1,77 @@
+.bd
+{
+    box-shadow: 0 0 5px rgba(0,0,0,0.5); 
+}
+
+.btn
+{
+    
+    background-color: #2d2d58;
+    color:white;
+    border-radius: 50px;
+    width:19rem;
+
+}
+.m-5{
+    margin: 5rem !important;
+}
+.cl > fa-icon{
+    cursor: pointer;
+
+}
+
+.mt-5
+{
+    background-color:#EFEFFF ;
+    padding: 30px;
+    
+}
+.contn {
+    background-color:#1e1e52 ;
+}
+
+table{
+    color: white;
+}
+
+.cl{
+     color: rgb(109, 98, 98);
+ }
+ 
+ .file-upload{
+    background-color: #1e1e52;
+    color: white;
+    max-width: 33;
+ }
+
+.uplBtnDiv{
+    display:flex;
+    position: relative;
+    justify-content: center;
+ }
+
+#upl {
+    position: absolute;
+    align-self :center;
+
+    opacity: 0;
+  
+    cursor: pointer;
+    width:18.5rem;
+}
+input 
+{
+    border-radius: 20px ;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+select
+{
+    border-radius: 20px ;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.container 
+{
+    border-style: dashed;
+     border-radius: 10px;
+}

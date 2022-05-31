@@ -1,0 +1,43 @@
+   <div class=" covid-form col-md-10 mx-auto col-lg-5 my-5">
+      <div class="backbtn d-inline-flex p-2 mt-2 rounded-circle">
+         <fa-icon role="button" [icon]="backbtn" onclick="history.back()"></fa-icon>
+       </div>
+
+      <form class="p-4 p-md-5" class="label" [formGroup]="covidForm">
+         <h4>Covid-19 form</h4>
+         <!-- symptoms of covid  -->
+         <label class="label">Do you have any covid-19 symptoms </label>
+         <br>
+         <br>
+
+         <div class="row">
+            <div class="col-6">
+               <label class="radio-label me-2">YES</label>
+               <input id="symptom" type="radio" value="yes" formControlName="symptomControl" />
+
+            </div>
+            <div class="col-6">
+               <label class="radio-label me-2"> NO</label>
+               <input id="symptom" type="radio" value="no" formControlName="symptomControl" />
+
+            </div>
+         </div>
+         <br>
+         <!-- pTemperature input field -->
+         <label class="label">Enter your Temparature </label>
+         <br>
+         <br>
+
+         <div class="form-floating d-flex mb-3">
+
+            <input formControlName="temparature" type="number" name="temparature" class="form-control p-1"
+               placeholder="37.0">
+         </div>
+
+         <!-- sumit the details in the input field  -->
+         <div class="d-flex justify-content-center">
+            <button class="w-50 btn btn-lg btn-primary" type="submit" (click)="submit()">Submit</button>
+         </div>
+      </form>
+   </div>
+   <app-mobile-nav></app-mobile-nav>

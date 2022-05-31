@@ -1,0 +1,26 @@
+thead{
+
+    background-color: #2d2d58; 
+    color:white;
+}
+
+
+
+.button__select {
+    display: flex;
+    flex-direction: row;
+    align-items:center ;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    width: 100%;
+
+    input {
+       padding: .4rem 1rem; 
+      
+    }
+
+    select {
+        padding: .5rem 1rem;
+    }
+}

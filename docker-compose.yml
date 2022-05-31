@@ -1,0 +1,17 @@
+version: '2' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+  angular: # name of the first service
+    build: ./Frontend # specify the directory of the Dockerfile
+    container_name: ontime_angular
+    image: registry.thedigitalacademy.co.za/fs/ontime:0.0.1
+    ports:
+      - "4305:4305" # specify port forewarding
+
+  express: #name of the second service
+    build: ./Backend # specify the directory of the Dockerfile
+    container_name: ontime_server
+    image: registry.thedigitalacademy.co.za/fs/ontime-api:0.0.1
+    ports:
+      - "4306:4306" #specify ports forwarding

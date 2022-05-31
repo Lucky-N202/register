@@ -1,0 +1,23 @@
+
+
+
+
+p{
+  font-size: 17px;
+  margin-left: 20%;
+}
+
+:host zxing-scanner::ng-deep video {
+  max-height: 50vh;
+  object-fit: contain;
+}
+:host zxing-scanner::ng-deep {
+  border-style: solid;
+  border-color: #5d78ff;
+  max-height: 50.3vh;
+
+}
+body{
+  background-color: #EFEFFF;
+}
+

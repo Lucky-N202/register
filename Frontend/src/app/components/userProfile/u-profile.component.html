@@ -1,0 +1,58 @@
+<div class="container mx-auto col-lg-5 my-5 user-pro-cont rounded">
+  <div class="backbtn  p-2 mt-2 ">
+  <fa-icon [icon]="backbtn" onclick="history.back()"></fa-icon>
+</div>
+<div class="text-center rounded-pill mx-5 p-0">
+  <h4 class="mt-1 mx-5"><strong class="text-nowrap">Profile</strong> </h4>
+</div>
+<div class="d-flex justify-content-center"*ngIf="user" >
+  <img *ngIf="user.image" id="profile-img" src="{{user.image}}" class="m-auto rounded-circle " width="250" height="250" />
+  <img  *ngIf="!user.image" id="profile-img" src="../../../assets/default1.png" class="m-auto rounded-circle " width="250" height="250" />
+</div>
+<!--  the login form-->
+<div class="row mt-3 justify-content-center">
+  <!-- user details -->
+  <div class="col-md-7" *ngIf="user">
+    <div class="card rounded">
+      <div class="card-body">
+
+        <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center flex-column"> -->
+        <div class="contact-card-item-body d-flex align-items-center ">
+          <p>
+            Full Name: {{user.username +" "+ user.surname}}
+          </p>
+        </div>
+
+        <div class="contact-card-item-body d-flex align-items-center">
+          <p>
+            Email: {{user.email}}
+          </p>
+        </div>
+
+        <div class="contact-card-item-body d-flex align-items-center ">
+          <p>
+            User Id: {{user.user_id}}
+          </p>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- view  details, rout to edit  -->
+  <div class="mt-4">
+    <div class="d-flex justify-content-center pt-3 pb-5" *ngIf="isUser">
+      <button class="w-50 btn btn-primary" routerLink="/update-profile">Edit</button>
+    </div>
+
+    <div class="d-flex justify-content-center pt-3 pb-5" *ngIf="isSecurity">
+      <button class="w-50 btn btn-lg btn-primary" routerLink="/scan">Done</button>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+<app-mobile-nav></app-mobile-nav>

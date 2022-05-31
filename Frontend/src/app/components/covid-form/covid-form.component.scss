@@ -1,0 +1,37 @@
+.radio-inline
+{
+    margin-left: 16px;
+}
+
+.covid-form {
+    margin-bottom: 20px;
+    background: #EFEFFF;
+    padding: 35px;
+}
+.btn {
+    font-size: 15px;
+    font-weight: bold;
+    background-color:#2d2d58;
+    border-radius: 50px;
+    color: white;
+}
+
+.label
+{
+    text-align:center;
+}
+
+.my-input
+{
+    border-radius: 20px !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    height: 17px;
+}
+
+
+
+@media screen  and ( max-width:768px){
+    header vav{
+        display:none;
+    }
+ }

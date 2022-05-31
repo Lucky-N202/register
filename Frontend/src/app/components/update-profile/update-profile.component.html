@@ -1,0 +1,85 @@
+
+<div class="container mx-auto col-lg-5 my-5 rounded user-pro-cont">
+     <!-- Back buttun -->
+  <div class="backbtn p-2 mt-2 ">
+    <fa-icon role="button" [icon]="backbtn" onclick="history.back()"></fa-icon>
+  </div>
+     <!-- Update Profile header -->
+  <div class=" update text-center rounded-pill mx-5 p-0">
+    <h5 class="mt-1 mx-5"><strong class="text-nowrap">Update Profile</strong> </h5>
+  </div>
+
+     <!-- Getting the profile pic of the logged in user -->
+  <div class="row text-center justify-content-center mt-3">
+    <div class="col-md-6 mb-3">
+      <img *ngIf="userData" class="rounded-circle" alt="profile Picture" width="250" height="250" src="{{userData.image}}" data-holder-rendered="true">
+   </div>
+  </div>
+
+   <!-- Changing the profile picture -->
+  <form [formGroup]="form" (ngSubmit)="updateProfilePic()">
+   <div class="d-flex mb-3 mx-5 w-75">
+    <label for="formFile" class="form-label"></label>
+    <input formControlName="images" class="form-control img rounded-pill text-white"  (change)="profilePicChange($event)" accept=".jpg, .PNG" type="file" id="formFile">
+   </div>
+  </form>
+
+   <!-- Updating the employee Details-->
+  <form [formGroup]="form" (ngSubmit)="update()">
+      <div class="form-group">
+          <label for="username" class="ps-2">Name:</label>
+          <input
+              formControlName="username"
+              id="username"
+              type="text"
+              class="form-control rounded-pill mt-2 mb-3">
+          <div *ngIf="f['username'].touched && f['username'].invalid" class="alert alert-danger">
+              <div *ngIf="f['username'].errors && f['username'].errors['required']">Name is required.</div>
+              <div *ngIf="f['username'].errors && f['username'].errors['minlength']">Name should be 3 character.</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="surname" class="ps-2">Surname:</label>
+        <input
+            formControlName="surname"
+            id="surname"
+            type="text"
+            class="form-control rounded-pill mb-3">
+        <div *ngIf="f['surname'].touched && f['surname'].invalid" class="alert alert-danger">
+            <div *ngIf="f['surname'].errors && f['surname'].errors['required']">Surname is required.</div>
+            <div *ngIf="f['surname'].errors && f['surname'].errors['minlength']">Surname should be 3 character.</div>
+        </div>
+    </div>
+
+      <div class="form-group">
+          <label for="email" class="ps-2">Email:</label>
+          <input
+              formControlName="email"
+              id="email"
+              type="text"
+              class="form-control rounded-pill mb-3">
+          <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+              <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+              <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+          </div>
+      </div>
+
+      <!-- Submit button for updating the user information -->
+      <div class=" d-flex justify-content-center pt-3 pb-5">
+        <button class="btn text-white" type="submit">Update</button>
+      </div>
+ </form>
+</div>
+
+    <!-- spinnerState when the update button is clicked -->
+<!-- <div *ngIf="spinnerState" class="container-fluid position-fixed start-0 end-0 top-0 bottom-0 w-100 d-flex justify-content-center align-items-center">
+  <div class="spinner-border text-white p-3" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+</div> -->
+<app-spinner *ngIf="spinnerState"></app-spinner>
+
+<app-mobile-nav></app-mobile-nav>
+
+
